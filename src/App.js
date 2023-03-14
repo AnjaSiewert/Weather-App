@@ -1,6 +1,13 @@
+import { useState } from "react";
+import { uid } from "uid";
 import "./App.css";
 
 function App() {
+  const [activities, setActivities] = useState("");
+  function handleAddActivity(activity) {
+    setActivities({ activity, id: uid() });
+  }
+  console.log(uid);
   return (
     <>
       <form className="form">
