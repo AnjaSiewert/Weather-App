@@ -1,0 +1,33 @@
+.form__container {
+  display: flex;
+  justify-content: center;
+}
+
+.form {
+  margin-top: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: 2px solid black;
+  border-radius: 10px;
+  width: 80%;
+}
+.form__header {
+  font-size: 1.2rem;
+}
+
+.button {
+  background: linear-gradient(180deg, rgb(194, 178, 163), rgb(154, 65, 14));
+
+  width: 8rem;
+  font-size: 1.2rem;
+  border-radius: 5px;
+}
+
+.button:hover {
+  cursor: pointer;
+}
