@@ -1,8 +1,12 @@
-export default function List({ activities }) {
+export default function List({ activities, isGoodWeather }) {
   return (
     <ul>
       {activities.map((activity) => {
-        return <li key={activity.id}>{activity.name}</li>;
+        return (
+          activity.isForGoodWeather === isGoodWeather && (
+            <li key={activity.id}>{activity.name} </li>
+          )
+        );
       })}
     </ul>
   );

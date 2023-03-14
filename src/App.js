@@ -6,7 +6,7 @@ import List from "./components/List";
 
 function App() {
   const [activities, setActivities] = useState([]);
-
+  const isGoodWeather = true;
   function handleAddActivity(data, isChecked) {
     setActivities([
       ...activities,
@@ -22,7 +22,7 @@ function App() {
 
   return (
     <>
-      <List activities={activities} />
+      <List activities={activities} isGoodWeather={isGoodWeather} />
       <Form onAddActivity={handleAddActivity} />
     </>
   );
