@@ -6,7 +6,7 @@ import List from "./components/List";
 
 function App() {
   const [activities, setActivities] = useState([]);
-  const isGoodWeather = true;
+  const isGoodWeather = false;
   function handleAddActivity(data, isChecked) {
     setActivities([
       ...activities,
