@@ -1,25 +1,22 @@
 import { useState } from "react";
 import { uid } from "uid";
 import "./App.css";
+import Form from "./components/Form";
 
 function App() {
-  const [activities, setActivities] = useState("");
-  function handleAddActivity(activity) {
-    setActivities({ activity, id: uid() });
+  const [activities, setActivities] = useState({});
+
+  function handleAddActivity(data, isChecked) {
+    setActivities({
+      name: data.name,
+      isForGoodWeather: isChecked,
+      id: uid(),
+    });
   }
-  console.log(uid);
-  return (
-    <>
-      <form className="form">
-        <h2>Add new Activity</h2>
-        <label htmlFor="name">Name:</label>
-        <input id="name" type="text" name="name" value="" />
-        <label htmlFor="activity">Good weather Activity:</label>
-        <input id="activity" type="checkbox" name="activity" />
-        <button type="submit">Submit</button>
-      </form>
-    </>
-  );
+
+  console.log(activities);
+
+  return <Form onAddActivity={handleAddActivity} />;
 }
 
 export default App;
