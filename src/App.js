@@ -1,24 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import { uid } from "uid";
+import "./App.css";
 
 function App() {
+  const [activities, setActivities] = useState("");
+  function handleAddActivity(activity) {
+    setActivities({ activity, id: uid() });
+  }
+  console.log(uid);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <form className="form">
+        <h2>Add new Activity</h2>
+        <label htmlFor="name">Name:</label>
+        <input id="name" type="text" name="name" value="" />
+        <label htmlFor="activity">Good weather Activity:</label>
+        <input id="activity" type="checkbox" name="activity" />
+        <button type="submit">Submit</button>
+      </form>
+    </>
   );
 }
 
