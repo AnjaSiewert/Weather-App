@@ -40,10 +40,20 @@ function App() {
     ]);
   }
 
+  function handleDeleteActivity(activityToDelete) {
+    setActivities(
+      activities.filter((activity) => activity !== activityToDelete)
+    );
+  }
+
   return (
     <>
       <Header emoji={weather.condition} temperature={weather.temperature} />
-      <List activities={activities} isGoodWeather={weather.isGoodWeather} />
+      <List
+        activities={activities}
+        isGoodWeather={weather.isGoodWeather}
+        onDeleteActivity={handleDeleteActivity}
+      />
       <Form onAddActivity={handleAddActivity} />
     </>
   );
