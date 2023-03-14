@@ -17,21 +17,26 @@ function App() {
   const WEATHER_URL = "https://example-apis.vercel.app/api/weather/europe";
   const [weather, setWeather] = useState({});
 
-  useEffect(() => {
-    async function loadWeather() {
-      try {
-        const response = await fetch(WEATHER_URL);
-        const data = await response.json();
-        if (response.ok) {
-          setWeather(data);
-        } else {
-          console.error("fetch failed!");
-        }
-      } catch (error) {
-        console.error(error);
+  async function loadWeather() {
+    try {
+      const response = await fetch(WEATHER_URL);
+      const data = await response.json();
+      if (response.ok) {
+        setWeather(data);
+      } else {
+        console.error("fetch failed!");
       }
+    } catch (error) {
+      console.error(error);
     }
+  }
+
+  useEffect(() => {
     loadWeather();
+    const timer = setInterval(loadWeather, 5000);
+    return () => {
+      clearInterval(timer);
+    };
   }, []);
 
   function handleAddActivity(data, isChecked) {
