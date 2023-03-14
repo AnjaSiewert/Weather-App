@@ -10,17 +10,15 @@ export default function List({ activities, isGoodWeather, onDeleteActivity }) {
         {activities.map((activity) => {
           return (
             activity.isForGoodWeather === isGoodWeather && (
-              <>
-                <li key={activity.id}>
-                  {activity.name}{" "}
-                  <button
-                    type="button"
-                    onClick={() => onDeleteActivity?.(activity.id)}
-                  >
-                    Delete
-                  </button>
-                </li>
-              </>
+              <li key={activity.id}>
+                {activity.name}{" "}
+                <button
+                  type="button"
+                  onClick={() => onDeleteActivity?.(activity)}
+                >
+                  Delete
+                </button>
+              </li>
             )
           );
         })}

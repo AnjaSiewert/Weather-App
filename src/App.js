@@ -4,9 +4,14 @@ import "./App.css";
 import Form from "./components/Form";
 import Header from "./components/Header";
 import List from "./components/List";
+import useLocalStorageState from "use-local-storage-state";
 
 function App() {
-  const [activities, setActivities] = useState([]);
+  const [activities, setActivities] = useLocalStorageState("activites", {
+    defaultValue: [],
+  });
+
+  //const [activities, setActivities] = useState([]);
 
   // Fetching
   const WEATHER_URL = "https://example-apis.vercel.app/api/weather/europe";
