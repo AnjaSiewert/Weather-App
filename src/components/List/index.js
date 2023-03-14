@@ -14,7 +14,7 @@ export default function List({ activities, isGoodWeather, onDeleteActivity }) {
                 {activity.name}{" "}
                 <button
                   type="button"
-                  onClick={() => onDeleteActivity?.(activity)}
+                  onClick={() => onDeleteActivity(activity.id)}
                 >
                   Delete
                 </button>
